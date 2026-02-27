@@ -22,5 +22,6 @@ exec unshare --cgroup -- /bin/bash -lc '
   mount -t cgroup2 none /sys/fs/cgroup
   /escape-cgroup.sh
   /create-kubelet-cgroup.sh
+  mount --make-rshared /
   exec /lib/systemd/systemd
 '
