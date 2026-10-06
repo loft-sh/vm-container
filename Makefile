@@ -9,3 +9,8 @@ build-push:
 .PHONY: build
 build:
 	docker buildx build --platform $(PLATFORMS) -t $(IMAGE):$(TAG) .
+
+.PHONY: test
+test:
+	docker build -t $(IMAGE):test .
+	test/run.sh $(IMAGE):test
