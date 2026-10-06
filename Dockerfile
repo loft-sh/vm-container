@@ -4,9 +4,10 @@ ARG TARGETARCH
 
 # Install curl
 RUN apt update && \
-    DEBIAN_FRONTEND=noninteractive apt install curl fuse binutils jq conntrack iptables strace apt-transport-https iproute2 ca-certificates gpg systemd systemd-sysv dbus cloud-init kmod -y && \
+    DEBIAN_FRONTEND=noninteractive apt install curl fuse binutils jq conntrack iptables strace apt-transport-https iproute2 ca-certificates gpg systemd systemd-sysv dbus cloud-init kmod openssh-server -y && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/* && \
+    rm -f /etc/ssh/ssh_host_*
 
 # Change workdir
 WORKDIR /home
