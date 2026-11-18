@@ -9,6 +9,8 @@ ln -sf /dev/null /etc/systemd/system/systemd-sysctl.service
 ln -sf /dev/null /etc/systemd/system/systemd-networkd.service
 ln -sf /dev/null /etc/systemd/system/systemd-networkd.socket
 ln -sf /dev/null /etc/systemd/system/systemd-resolved.service
+# https://github.com/kubernetes-sigs/kind/blob/9fde029cabc17de55e19dc28aa53b59848765d28/images/base/Dockerfile#L92
+ln -sf /dev/null /etc/systemd/system/systemd-binfmt.service
 echo 'disable_network_activation: true' > /etc/cloud/cloud.cfg.d/98-disable-network-activation.cfg
 echo 'network: {config: disabled}' > /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg
 
